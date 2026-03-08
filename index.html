@@ -1,65 +1,110 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simpsons Burger | Blue Edition</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-  <header>
-  <nav>
-    <div class="logo">
-      <img src="hamburguesa.png" alt="Logo" class="logo-icon" />
-      <div class="logo-text">
-        <p class="company-name">Simpsons Burger</p>
-        <p class="tagline">CALIDAD PREMIUM</p>
-      </div>
-    </div>
-    </nav>
-</header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simpsons Burger | Responsive Tailwind</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primaryBlue: '#0a192f',
+                        accentBlue: '#172a45',
+                        cyanLight: '#64ffda',
+                        accentYellow: '#fcc419',
+                        whiteBlue: '#e6f1ff',
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        bebas: ['Bebas Neue', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/css">
+        .bg-curve::after {
+            content: "";
+            position: absolute;
+            bottom: -10%;
+            left: -25%;
+            width: 150%;
+            height: 35%;
+            background-color: #fcc419;
+            border-radius: 50% 50% 0 0;
+            z-index: 0;
+        }
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        .animate-float { animation: floating 5s ease-in-out infinite; }
+    </style>
+</head>
+<body class="bg-primaryBlue text-whiteBlue font-poppins min-h-screen relative bg-curve overflow-x-hidden">
 
-    <main class="hero">
-      <div class="content">
-        <h3 class="sub-title">Sabor Incomparable</h3>
-        <h1 class="main-title">THE ROYAL<br />BURGER</h1>
-        <p class="description">
-          Descubre nuestra receta exclusiva en un ambiente renovado. Carne
-          seleccionada, pan artesanal y el toque secreto de la casa que ya
-          conoces.
-        </p>
-<a href="https://wa.me/584264622693?text=Quiero%20una%20hamburguesa" 
-   target="_blank" 
-   style="text-decoration: none;">
-    <button class="order-btn">
-        PIDE AHORA <span>➔</span>
-    </button>
-</a>      </div>
+    <header class="relative z-20">
+        <nav class="flex justify-between items-center py-4 md:py-6 px-[5%] md:px-[8%]">
+            <div class="flex items-center gap-2 md:gap-4">
+                <img src="hamburguesa.png" alt="Logo" class="w-[60px] h-[50px] md:w-[110px] md:h-[90px] object-contain">
+                <div class="flex flex-col">
+                    <p class="font-bold text-lg md:text-2xl uppercase leading-none">Simpsons Burger</p>
+                    <p class="text-[0.5rem] md:text-[0.75rem] tracking-[1px] md:tracking-[2px] text-cyanLight font-light">CALIDAD PREMIUM</p>
+                </div>
+            </div>
+            
+            <ul class="hidden lg:flex gap-8 list-none">
+                <li><a href="#" class="text-accentYellow font-bold text-sm">INICIO</a></li>
+                <li><a href="#" class="hover:text-cyanLight transition text-sm">MENÚ</a></li>
+                <li><a href="#" class="hover:text-cyanLight transition text-sm">NOSOTROS</a></li>
+                <li><a href="#" class="hover:text-cyanLight transition text-sm">CONTACTO</a></li>
+            </ul>
 
-      <div class="image-container">
-        <img
-          src="https://www.pngarts.com/files/3/Burger-PNG-Transparent-Image.png"
-          alt="Burger Premium"
-          class="burger-img"
-        />
+            <div class="flex items-center gap-3">
+                <input type="text" placeholder="Buscar..." class="hidden sm:block bg-accentBlue/80 border border-accentBlue px-4 py-2 rounded-md text-sm outline-none focus:border-cyanLight">
+                <span class="text-xl cursor-pointer">👤</span>
+                <span class="lg:hidden text-2xl cursor-pointer">☰</span>
+            </div>
+        </nav>
+    </header>
 
-        <div class="price-badge">
-          <p>DESDE</p>
-          <h2>$4.99</h2>
+    <main class="relative z-10 flex flex-col lg:flex-row items-center justify-center lg:justify-between px-[5%] md:px-[10%] min-h-[85vh] py-10 lg:py-0 text-center lg:text-left">
+        
+        <div class="max-w-[500px] order-2 lg:order-1 mt-10 lg:mt-0">
+            <h3 class="font-bebas text-2xl md:text-4xl text-cyanLight tracking-widest">Sabor Incomparable</h3>
+            <h1 class="font-bebas text-5xl md:text-7xl lg:text-[7.5rem] leading-[0.9] md:leading-[0.85] mb-5 drop-shadow-[3px_3px_0px_rgba(23,42,69,1)]">
+                THE ROYAL<br>BURGER
+            </h1>
+            <p class="text-[#8892b0] text-sm md:text-base mb-8 leading-relaxed px-4 lg:px-0">
+                Descubre nuestra receta exclusiva. Carne seleccionada, pan artesanal y el toque secreto de la casa que ya conoces.
+            </p>
+            
+            <a href="https://wa.me/584120000000?text=Quiero%20una%20hamburguesa" target="_blank" class="inline-block">
+                <button class="bg-accentYellow text-primaryBlue px-8 md:px-10 py-3 md:py-4 rounded font-extrabold shadow-lg hover:scale-105 active:scale-95 transition-all duration-300 uppercase text-sm md:text-base">
+                    PIDE AHORA ➔
+                </button>
+            </a>
         </div>
-      </div>
 
-      <div class="social-links">
-        <a href="#">f</a>
-        <a href="#">t</a>
-        <a href="#">i</a>
-      </div>
+        <div class="relative order-1 lg:order-2">
+            <img src="image.png" alt="Burger" class="w-[280px] sm:w-[400px] lg:w-[550px] drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] animate-float">
+            
+            <div class="absolute -top-2 -right-2 md:-top-5 md:-right-5 bg-primaryBlue text-accentYellow w-20 h-20 md:w-28 md:h-28 rounded-full flex flex-col items-center justify-center border-2 md:border-4 border-accentYellow shadow-xl rotate-12">
+                <p class="text-[0.6rem] md:text-xs font-bold">DESDE</p>
+                <h2 class="font-bebas text-xl md:text-3xl">$4.99</h2>
+            </div>
+        </div>
+
+        <div class="hidden md:flex absolute bottom-10 lg:bottom-16 right-[5%] flex-row lg:flex-col gap-5">
+            <a href="#" class="w-8 h-8 border-b-2 border-cyanLight flex items-center justify-center text-cyanLight hover:text-accentYellow transition-all">f</a>
+            <a href="#" class="w-8 h-8 border-b-2 border-cyanLight flex items-center justify-center text-cyanLight hover:text-accentYellow transition-all">t</a>
+            <a href="#" class="w-8 h-8 border-b-2 border-cyanLight flex items-center justify-center text-cyanLight hover:text-accentYellow transition-all">i</a>
+        </div>
     </main>
 
-    <script src="script.js"></script>
-  </body>
+</body>
 </html>
