@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://cheerful-malasada-19659a.netlify.app/sitemap.xml
+
+# Archivos disallowed
+Disallow: /css/
+Disallow: /js/
